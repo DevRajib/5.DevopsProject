@@ -60,3 +60,55 @@ nodeGroups:
     instanceType: t3.medium
     desiredCapacity: 3
 ```
+
+Run the following command to create the cluster:
+
+```
+eksctl create cluster -f eks-setup/cluster.yaml
+
+```
+
+## 2. Install Traefik Using Helm
+Add the Traefik Helm chart repository and install Traefik.
+
+
+```
+helm repo add traefik https://traefik.github.io/charts
+helm repo update
+
+helm install traefik traefik/traefik --namespace kube-system --values traefik/values.yaml
+
+```
+
+Your 'values.yaml' file should enable ACME for SSL certificates.
+
+```
+additionalArguments:
+  - "--entryPoints.web.address=:80"
+  - "--entryPoints.websecure.address=:443"
+  - "--certificatesResolvers.myresolver.acme.tlsChallenge=true"
+  - "--certificatesResolvers.myresolver.acme.email=your-email@example.com"
+  - "--certificatesResolvers.myresolver.acme.storage=/data/acme.json"
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
