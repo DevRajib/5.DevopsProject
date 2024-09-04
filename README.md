@@ -80,7 +80,7 @@ helm install traefik traefik/traefik --namespace kube-system --values traefik/va
 
 ```
 
-Your 'values.yaml' file should enable ACME for SSL certificates.
+Your `values.yaml` file should enable ACME for SSL certificates.
 
 ```
 additionalArguments:
