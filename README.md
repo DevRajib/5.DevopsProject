@@ -43,3 +43,21 @@ k8s-deployment/
 
 
 
+## Step-by-Step Instructions
+### 1. Set Up an EKS Cluster
+Create a cluster using eksctl. Create a configuration file named cluster.yaml inside the eks-setup/ directory.
+
+
+```apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: my-cluster
+  region: us-west-2
+  version: "1.24"
+
+nodeGroups:
+  - name: ng-1
+    instanceType: t3.medium
+    desiredCapacity: 3
+```
