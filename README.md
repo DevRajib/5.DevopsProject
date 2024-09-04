@@ -40,8 +40,7 @@ k8s-deployment/
 │       └── ingress.yaml         # Ingress configuration
 └── eks-setup/
     └── cluster.yaml             # eksctl cluster config file
-
-
+```
 
 ## Step-by-Step Instructions
 ### 1. Set Up an EKS Cluster
